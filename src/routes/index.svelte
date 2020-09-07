@@ -11,6 +11,10 @@
 		margin: 0 0 0.5em 0;
 	}
 
+	h2 {
+		display: none;
+	}
+
 	figure {
 		margin: 0 0 1em 0;
 	}
@@ -38,9 +42,19 @@
 
 <h1>Great success!</h1>
 
+<h2>This is not visible when index.svelte CSS was loaded correctly!</h2>
+
 <figure>
 	<img alt='Success Kid' src='successkid.jpg'>
 	<figcaption>Have fun with Sapper!</figcaption>
 </figure>
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+
+<script context="module">
+	import something from  '../something'
+
+	export async function preload() {
+		return {something}
+	}
+</script>
